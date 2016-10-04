@@ -61,23 +61,23 @@
 >   - **first_card_clicked** assigned to null
 >   - **second_card_clicked** assigned to null
 >   - **total_possible_matches** assign to number of total possible matches (in this case 2)
->   - *match_counter* assigned to 0
+>   - **match_counter** assigned to 0
 > - Declare card_clicked function in the script.js file with the following functionality in it
 >   - Show the card face
->   - Check if variable first_card_clicked is not null
->       - true - assign first_card_clicked equal to the html DOM Element that was clicked
+>   - Check if variable first_card_clicked is null
+>       - **true** - assign first_card_clicked equal to the html DOM Element that was clicked
 >           - click handler functionality is complete, return
->       - false - assign second_card_clicked to the html DOM Element that was clicked
+>       - **false** - assign second_card_clicked to the html DOM Element that was clicked
 >           - check if first_card_clicked is equivalent to the second_card_clicked
->               - true
+>               - **true**
 >                   - increment match_counter by 1
 >                   - reset both variables defined above to null again and then wait for next card click
 >                   - check if match_counter is equivalent to total_possible_matches
->                       - true
+>                       - **true**
 >                           - Display a message to the user they have won
->                       - false
+>                       - **false**
 >                           - click handler functionality is complete, return
->               - false
+>               - **false**
 >                   - Wait 2 seconds then
 >                       - Be wary of waiting programmatically but not being able to control the user from clicking on cards while the program waits execute the reset of the code
 >                       - Show card back on both elements that are flipped over
