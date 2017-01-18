@@ -1,0 +1,97 @@
+header{
+    background-color: #0c67ae;
+    height: 20vh;
+}
+body {
+    height: 100vh;
+    background-image: url("img/background_clouds.png");
+}
+.doraemon_head_left{
+    width: 150px;
+    height: 153px;
+    float: left;
+}
+.doraemon_logo{
+    width: 320px;
+    height: 69px;
+    position: absolute;
+    top: 4%;
+    left: 38%;
+}
+.doraemon_logo2{
+    width: 280px;
+    height: 33px;
+    position: absolute;
+    top: 15%;
+    left: 39.5%;
+}
+.doraemon_head_right{
+    width: 150px;
+    height: 153px;
+    float: right;
+}
+.settings_button{
+    position: absolute;
+    top: 26%;
+    left: 1%;
+}
+.about_button{
+    position: absolute;
+    top: 26%;
+    left: 12%;
+}
+.stats_door{
+    float: left;
+    position: absolute;
+    top: 32%;
+}
+@font-face {
+    font-family: 'Berlin Sans FB Demi Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Berlin Sans FB Demi Bold'), url('BRLNSDB.woff') format('woff');
+}
+.label{
+    text-align: center;
+    color: #646464;
+    font-family: 'Berlin Sans FB Demi Bold';
+    font-size: 23px;
+}
+.games-played > .label{
+    position:absolute;
+    left: 5.6%;
+    top: 45%;
+}
+.attempts > .label{
+    position:absolute;
+    left: 7.5%;
+    top: 55%;
+}
+.accuracy > .label{
+    position:absolute;
+    left: 7.2%;
+    top: 65%;
+}
+.reset_button .settings_button .about_button:focus{
+    outline:none;
+}
+.reset_button{
+    position: absolute;
+    top: 80%;
+    left: 4.2%;
+}
+#game-area{
+    height: 100vh;
+}
+.card{
+    position: relative;
+    display: inline-block;
+    width: 10%;
+    left: 30%;
+    margin-bottom: 12%;
+}
+.front, .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
