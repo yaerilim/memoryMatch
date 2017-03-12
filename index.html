@@ -3,110 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Doraemon Memory Match</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!--<script src="http://learning-fuze.github.io/memory_match/v0.1/script.js"></script>-->
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="animate.css">
     <script src="script.js"></script>
 </head>
 <body>
-        <img class="body_img" src="img/body_img.png">
-        <a href="about.html">
-            <img class="about_button" src="img/about_button.png">
-        </a>
-    <div id="stats_container">
-        <div class="attempts">
-            <p class="value"></p>
-        </div>
-        <div class="accuracy">
-            <p class="value"></p>
-        </div>
-        <div class="games-played">
-            <p class="value"></p>
-        </div>
-        <input type="image" class="reset_button" src="img/reset_button.jpg" />
+    <!--------------------------------- START PAGE --------------------------------->
+    <div class="main_page">
+        <img class="logo" src="img/logo.png">
+        <p class="select">Please Select the Player Mode</p>
+        <button type="button" class="button one_p" onclick="one_play()">1 Player Game</button>
+        <button type="button" class="button two_p" onclick="two_play()">2 Players Game</button><br>
+        <img class="doraemon grayscale" src="img/doraemon.png">
+        <img class="nobita grayscale" src="img/nobita.png">
+        <button type="button" class="play_button grayscale" onclick="play()" disabled>P L A Y</button>
     </div>
-
-    <div id="game-area">
-        <div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front4.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
+    <!--------------------------------- MUSIC --------------------------------->
+    <!--<audio loop="loop" autoplay="true" src="img/doraemon.mp3"></audio>-->
+    <i class="fa fa-volume-off" aria-hidden="true" onclick="audio_off()"></i>
+    <i class="fa fa-volume-up audio_color" aria-hidden="true" onclick="audio_on()"></i>
+    <!--------------------------------- STATUS CONTAINER --------------------------------->
+    <div class="stats">
+        <img class="logo" src="img/logo.png">
+        <img class="doraemon_face" src="img/doraemon_face.png">
+        <img class="nobita_face" src="img/nobita_face.png"><br>
+        <div class="p_1">Player 1</div>
+        <div class="p_2">Player 2</div>
+        <div class="p1_stats">
+            <p>Games Won</p>
+            <p class="games_won red_font">0</p>
+            <p>Attempts</p>
+            <p class="attempts red_font">0</p>
+            <p>Accuracy</p>
+            <p class="accuracy red_font">0</p>
+            <p>Time Left</p>
+            <p class="time_left red_font">01:00</p>
         </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front5.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
+        <div class="p2_stats">
+            <p>Games Won</p>
+            <p class="games_won red_font2">0</p>
+            <p>Attempts</p>
+            <p class="attempts red_font2">0</p>
+            <p>Accuracy</p>
+            <p class="accuracy red_font2">0</p>
+            <p>Time Left</p>
+            <p class="time_left red_font2">01:00</p>
         </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front3.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front8.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front7.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front9.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        </div>
-
-        <div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front2.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front6.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front1.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front9.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front4.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front6.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        </div>
-
-        <div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front5.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front2.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front8.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front3.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front7.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        <div class="card">
-            <div class="front"><img src="img/memory_card_front1.png"> </div>
-            <div class="back"><img src="img/memory_card_back.png"> </div>
-        </div>
-        </div>
+    </div>
+    <!--------------------------------- GAME AREA CONTAINER --------------------------------->
+    <div class="game_area p1_game_area">
+        <div class="row row1_1"></div>
+        <div class="row row1_2"></div>
+        <div class="row row1_3"></div>
+    </div>
+    <div class="game_area p2_game_area">
+        <div class="row row2_1"></div>
+        <div class="row row2_2"></div>
+        <div class="row row2_3"></div>
     </div>
 </body>
 </html>

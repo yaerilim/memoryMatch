@@ -1,93 +1,168 @@
 body{
-    position: relative;
+    font-family: Raleway;
     height: 100vh;
-    background-image: url(img/clouds.png);
+    width: 100vw;
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    background-size:     cover;
+    background-position: center center;
 }
-.body_img{
-    height: 85%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+.clouds{
+    background-image: url("img/clouds.png");
 }
-
-.about_button{
-    position: absolute;
-    height: 5%;
-    left: 73%;
-    top: 18%;
+/******************************* MULTI-USE *******************************/
+.grayscale{
+    filter: grayscale(100%);
 }
-.reset_button{
-    position: absolute;
-    height: 4%;
-    left: 21%;
-    top: 75%;
+.display_none{
+    display:none;
 }
-@font-face {
-    font-family: 'Berlin Sans FB Demi Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Berlin Sans FB Demi Bold'), url('BRLNSDB.woff') format('woff');
+/******************************* MUSIC *******************************/
+audio {
+    display:none;
 }
-.value{
-    text-align: center;
-    color: #646464;
-    font-family: 'Berlin Sans FB Demi Bold';
-    font-size: 3vh;
-}
-.games-played > .value{
-    position:absolute;
-    left: 26%;
-    top: 44%;
-}
-.attempts > .value{
-    position:absolute;
-    left: 26%;
-    top: 54%;
-}
-.accuracy > .value{
-    position:absolute;
-    left: 26%;
-    top: 64%;
-}
-#game-area {
-    position: relative;
-    top: 25%;
-    left: 38%;
-    height: 70vh;
-}
-.youWon img{
-    position: absolute;
-    height: 55%;
-    border: 10px solid white;
-    border-radius: 20px;
-}
-.youWon p{
-    position: relative;
-    top: 150%;
-    left: 10%;
-    color: black;
-    font-family: 'Berlin Sans FB Demi Bold';
+.fa-volume-up, .fa-volume-off{
+    float: right;
     font-size: 10vh;
+    margin: 1% 1.5%;
 }
-
-.card{
-    display: inline-block;
-    width: 7.5%;
-    margin-bottom: 11%;
+.audio_color{
+    color: orange;
 }
-.front, .back{
+/******************************* MAIN PAGE *******************************/
+.main_page{
     position: absolute;
+    border-radius: 0 0 10vh 0;
+    width: 40%;
     height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    float: left;
+    text-align: center;
 }
-.card img{
-    height: 28%;
+.logo{
+    width: 80%;
+    display: block;
+    margin: 5% auto;
 }
-.youWon{
-    height: 30%;
+.main_page>p{
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+.button{
+    font-family: Raleway;
+    width: 35%;
+    height: 10%;
+    font-size: 3vh;
+    font-weight: bold;
+    margin: 0 2%;
+    background-color: gray;
+    border: 1vh solid gray;
+    color: white;
+    border-radius: 3vh;
+}
+.button_color{
+    background-color: darkorange;
+    border: 1vh solid darkorange;
+}
+.button:focus {
+    outline:none;
+}
+.button:hover {
+    background-color: darkorange;
+    border: 1vh solid darkorange;
+}
+.doraemon, .nobita{
+    width: 30%;
+    margin: 3% 4%;
+}
+.play_button{
+    font-family: Raleway;
+    width: 33%;
+    height: 10%;
+    font-size: 5vh;
+    font-weight: bold;
+    margin: 0 2%;
+    background-color: dodgerblue;
+    border: 1vh solid dodgerblue;
+    color: white;
+    border-radius: 3vh;
+}
+.play_button:focus {
+    outline:none;
+}
+/******************************* STATUS CONTAINER *******************************/
+.stats{
+    position: absolute;
+    border-radius: 0 0 10vh 0;
+    width: 40%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    float: left;
+    text-align: center;
+}
+.p_1, .p_2{
+    text-align: center;
+    font-family: Raleway;
+    width: 20%;
+    font-size: 3vh;
+    font-weight: bold;
+    display: inline-block;
+    padding: 2%;
+    margin: 0 9%;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 3vh;
+}
+.doraemon_face, .nobita_face{
+    width: 20%;
+    margin: 1% 11%;
+}
+.p1_stats, .p2_stats{
+    width: 25%;
+    height: 38%;
+    border: 2vh solid dodgerblue;
+    border-radius: 5vh;
+    display: inline-block;
+    margin: 1% 6%;
+    background-color: white;
+    font-size: 2vh;
+    font-weight: bolder;
+}
+.red_font{
+    color: orangered;
+    font-weight: bold;
+}
+/******************************* GAME AREA *******************************/
+.game_area{
+    width: 54%;
+    height: 50%;
+    float: right;
+    margin: 9% -11% 0 0;
+}
+.row{
+    width: 100%;
+    height: 50%;
+}
+.card1, .card2{
+    width: 15%;
+    display: inline-block;
+    position: relative;
+    margin: 0.5%;
+    padding: 0;
+}
+.front1, .front2{
+    margin:0;
+    width: 100%;
+    position: absolute;
+}
+.back1, .back2{
+    margin:0;
+    width: 100%;
+    position: relative ;
+}
+.card1 img, .card2 img{
+    width: 100%;
 }

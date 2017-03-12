@@ -1,77 +1,77 @@
-$(document).ready(initializeGame);
-
-function initializeGame(){
-    console.log('initializeGame called');
-    $('.card').click(card_clicked);
-    $('.reset_button').click(function (){
-        games_played++;
-        reset_stats();
-        $('.card').show();
-        $('.youWon').hide();
-    })
+$(document).ready(function(){
+   $('.stats').addClass('display_none');
+   $('.game_area').addClass('display_none');
+});
+//---------------------------------- MUSIC ----------------------------------
+function audio_off(){
+    $('.fa-volume-off').addClass('audio_color');
+    $('.fa-volume-up').removeClass('audio_color');
+    $('audio').trigger('pause')
 }
-var first_card_clicked = null;
-var second_card_clicked = null;
-var total_possible_matches = 9;
-var match_counter = 0;
-var matches = 0;
-var attempts = 0;
-var accuracy = 0;
-var games_played = 0;
-
-function card_clicked(){
-    if($(this).find('.back').css('display') == 'none'){
-        return;
+function audio_on(){
+    $('.fa-volume-up').addClass('audio_color');
+    $('.fa-volume-off').removeClass('audio_color');
+    $('audio').trigger('play')
+}
+//---------------------------------- SELECTING PLAYER OPTION ----------------------------------
+function one_play(){
+    $('.doraemon').removeClass('grayscale');
+    $('.nobita').addClass('grayscale');
+    $('.play_button').removeClass('grayscale');
+    $('.select').text('1 Player Game Selected');
+    $('.play_button').prop('disabled', false);
+    $('.one_p').addClass('button_color');
+    $('.two_p').removeClass('button_color');
+}
+function two_play(){
+    $('.doraemon').removeClass('grayscale');
+    $('.nobita').removeClass('grayscale');
+    $('.play_button').removeClass('grayscale');
+    $('.select').text('2 Players Game Selected');
+    $('.play_button').prop('disabled', false);
+    $('.two_p').addClass('button_color');
+    $('.one_p').removeClass('button_color');
+}
+function play(){
+    $('body').addClass('clouds');
+    $('.stats').removeClass('display_none');
+    $('.main_page').addClass('display_none');
+    $('.p1_game_area').removeClass('display_none');
+    $('.nobita_face').addClass('grayscale');
+    $('.p_2').addClass('grayscale');
+    $('.p2_stats').addClass('grayscale');
+    $('.red_font2').css('color', 'black');
+    generate_cards();
+}
+//---------------------------------- GENERATE CARDS ----------------------------------
+var p1_cards = [];
+var p2_cards = [];
+function generate_cards(){
+    for(var i = 1; i<=9; i++){
+        p1_cards.push('img/front'+i+'.png');
+        p2_cards.push('img/front'+i+'.png');
     }
-    var back_element = $(this).find('.back');
-    back_element.hide();
-    if(first_card_clicked == null){
-        first_card_clicked = $(this);
+    for(var j = 1; j<=9; j++){
+        p1_cards.push('img/front'+j+'.png');
+        p2_cards.push('img/front'+j+'.png');
     }
-    else if (first_card_clicked!==null){
-        second_card_clicked = $(this);
-        ++attempts;
-        display_stats();
-        console.log('attempts made: ' + attempts);
-        var first_card_front = first_card_clicked.find('.front').find('img').attr('src');
-        var second_card_front = second_card_clicked.find('.front').find('img').attr('src');
-        if(first_card_front == second_card_front){
-            console.log('Cards matched');
-            ++match_counter;
-            ++matches;
-            accuracy = Math.floor(matches / attempts *100);
-            console.log('number of cards matched: ' + matches);
-            console.log('accuracy: ' + accuracy);
-            first_card_clicked = null;
-            second_card_clicked = null;
-            if(match_counter == total_possible_matches){
-                $('.card').hide();
-                $('#game-area').append("<div class='youWon'><img class='youWon_image' src='img/you_won.gif'><br><p>Great Job!</p></div>");
-            }
-        }else{
-            $('.card').off();
-            setTimeout(function(){
-                var first_card_back = $(first_card_clicked).find('.back');
-                var second_card_back = $(second_card_clicked).find('.back');
-                first_card_back.show();
-                second_card_back.show();
-                first_card_clicked = null;
-                second_card_clicked = null;
-                $('.card').click(card_clicked);
-            }, 2000);
+    p1_cards.sort(function(a, b){return 0.5 - Math.random()});  //Sorting an Array in Random Order
+    p2_cards.sort(function(a, b){return 0.5 - Math.random()});
+    for(var x = 0; x<6; x++){
+        for(var y = 0; y<3; y++){
+            $('.row1_'+(y+1)).append('<div class="card1">');
+            $('.row1_'+(y+1)).find(".card1:eq("+x+")").append('<div class="front1"/>');
+            $('.row1_'+(y+1)).find(".card1:eq("+x+")").find(".front1").append($('<img>').attr({'src': p1_cards[0]}));
+            $('.row1_'+(y+1)).find(".card1:eq("+x+")").append('<div class="back1"/>');
+            $('.row1_'+(y+1)).find(".card1:eq("+x+")").find(".back1").append('<img src="img/back.png">');
+            p1_cards.splice(0,1);
+            $('.row2_'+(y+1)).append('<div class="card2">');
+            $('.row2_'+(y+1)).find(".card2:eq("+x+")").append('<div class="front2"/>');
+            $('.row2_'+(y+1)).find(".card2:eq("+x+")").find(".front2").append($('<img>').attr({'src': p2_cards[0]}));
+            $('.row2_'+(y+1)).find(".card2:eq("+x+")").append('<div class="back2"/>');
+            $('.row2_'+(y+1)).find(".card2:eq("+x+")").find(".back2").append('<img src="img/back.png">');
+            p2_cards.splice(0,1);
         }
     }
 }
-function display_stats(){
-    $('.games-played .value').text(games_played);
-    $('.attempts .value').text(attempts);
-    $('.accuracy .value').text(accuracy + '%');
-}
-function reset_stats(){
-    accuracy = 0;
-    matches = 0;
-    attempts = 0;
-    match_counter = 0;
-    display_stats();
-    $('.card').find('.back').show();
-}
+//---------------------------------- CARD MATCHING ----------------------------------
