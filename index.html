@@ -7,24 +7,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="animate.css">
     <script src="script.js"></script>
 </head>
 <body>
+    <!--------------------------------- WIN CONDITION --------------------------------->
+    <div class="win_condition"><img class="win_img" src="" onclick="play_again()"></div>
     <!--------------------------------- START PAGE --------------------------------->
     <div class="main_page">
         <img class="logo" src="img/logo.png">
         <p class="select">Please Select the Player Mode</p>
-        <button type="button" class="button one_p" onclick="one_play()">1 Player Game</button>
-        <button type="button" class="button two_p" onclick="two_play()">2 Players Game</button><br>
+        <button type="button" class="button one_p focus" onclick="one_play()">1 Player Game</button>
+        <button type="button" class="button two_p focus" onclick="two_play()">2 Players Game</button><br>
         <img class="doraemon grayscale" src="img/doraemon.png">
         <img class="nobita grayscale" src="img/nobita.png">
-        <button type="button" class="play_button grayscale" onclick="play()" disabled>P L A Y</button>
+        <button type="button" class="play_button grayscale focus" onclick="play()" disabled>P L A Y</button>
     </div>
     <!--------------------------------- MUSIC --------------------------------->
-    <!--<audio loop="loop" autoplay="true" src="img/doraemon.mp3"></audio>-->
+    <audio class="doraemon_music" loop="loop" autoplay="autoplay" src="sound/doraemon.mp3"></audio>
     <i class="fa fa-volume-off" aria-hidden="true" onclick="audio_off()"></i>
     <i class="fa fa-volume-up audio_color" aria-hidden="true" onclick="audio_on()"></i>
+    <!--------------------------------- SOUND EFFECTS --------------------------------->
+    <audio class="click_sound" src="sound/click.mp3"></audio>
+    <audio class="no_match_sound" src="sound/wrong.mp3"></audio>
+    <audio class="match_sound" src="sound/right.wav"></audio>
+    <audio class="win_sound" src="sound/win.mp3"></audio>
+    <audio class="select_sound" src="sound/select.mp3"></audio>
+    <audio class="play_sound" src="sound/play.mp3"></audio>
     <!--------------------------------- STATUS CONTAINER --------------------------------->
     <div class="stats">
         <img class="logo" src="img/logo.png">
@@ -33,25 +41,22 @@
         <div class="p_1">Player 1</div>
         <div class="p_2">Player 2</div>
         <div class="p1_stats">
-            <p>Games Won</p>
-            <p class="games_won red_font">0</p>
-            <p>Attempts</p>
-            <p class="attempts red_font">0</p>
+            <p>Matches</p>
+            <p class="matches red_font">0</p>
+            <p>Matches Left</p>
+            <p class="matches_left red_font">9</p>
             <p>Accuracy</p>
-            <p class="accuracy red_font">0</p>
-            <p>Time Left</p>
-            <p class="time_left red_font">01:00</p>
+            <p class="accuracy red_font">0%</p>
         </div>
         <div class="p2_stats">
-            <p>Games Won</p>
-            <p class="games_won red_font2">0</p>
-            <p>Attempts</p>
-            <p class="attempts red_font2">0</p>
+            <p>Matches</p>
+            <p class="matches2 red_font2">0</p>
+            <p>Matches Left</p>
+            <p class="matches_left2 red_font2">9</p>
             <p>Accuracy</p>
-            <p class="accuracy red_font2">0</p>
-            <p>Time Left</p>
-            <p class="time_left red_font2">01:00</p>
+            <p class="accuracy2 red_font2">0%</p>
         </div>
+        <button type="button" class="play_again focus" onclick="play_again()">Play Again</button>
     </div>
     <!--------------------------------- GAME AREA CONTAINER --------------------------------->
     <div class="game_area p1_game_area">
