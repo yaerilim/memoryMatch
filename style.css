@@ -132,7 +132,19 @@ audio {
 }
 .play_again{
     font-family: Raleway;
-    width: 33%;
+    width: 28%;
+    height: 7%;
+    font-size: 3vh;
+    font-weight: bold;
+    margin: 2%;
+    background-color: darkorange;
+    border: 1vh solid darkorange;
+    color: white;
+    border-radius: 3vh;
+}
+.main_menu{
+    font-family: Raleway;
+    width: 28%;
     height: 7%;
     font-size: 3vh;
     font-weight: bold;

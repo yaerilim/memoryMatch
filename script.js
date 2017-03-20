@@ -20,6 +20,7 @@ var whos_turn = 1;     //1 for player 1 and 2 for player 2
 var two_player_game = false;
 
 function one_play(){         //adding colors when 1 player mode selected
+    two_player_game = false;
     $('.select_sound').trigger('play');
     $('.doraemon').removeClass('grayscale');
     $('.nobita').addClass('grayscale');
@@ -210,4 +211,8 @@ function play_again() {
     $('.row').empty();
     generate_cards();
     $('.card').click(card_clicked);
+}
+//---------------------------------- MAIN MENU ----------------------------------
+function main_menu() {
+    location.reload();
 }
