@@ -1,6 +1,6 @@
-<<<<<<< HEAD
+
 # Memory Match - Version 0.5 (v0.5)
-=======
+
 # Memory Match
 
 ### Overview
@@ -53,7 +53,7 @@
     - Pull latest merged code
         - `git pull origin master`
 
-<<<<<<< HEAD
+
 #### Scope
 
 > - Create 4 card static layout by removing 7 of the nine matching cards
@@ -90,7 +90,7 @@
 >                       - variables to null
 >                       - click handler functionality is complete, return
 > <img src="https://docs.google.com/drawings/d/1JT0nsiTg3HXG2L3QFPnfAmPoQDWUCRNKDvl2qr1r9xo/pub?w=960&h=720" width="750"/>
-=======
+
 ### Scope
 
 >- Adding Stats
