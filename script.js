@@ -130,9 +130,9 @@ function card_clicked() {
         first_clicked.off();                     //avoid clicking the same card twice
     } else {                                      //when second card clicked
         second_clicked = $(this);
+        second_clicked.off();
         var first_front = first_clicked.find('.front').find('img').attr('src');
         var second_front = second_clicked.find('.front').find('img').attr('src');
-        first_clicked.on();
         if(whos_turn === 1){
                 ++attempts;
             }else{
@@ -140,6 +140,8 @@ function card_clicked() {
             }
             if (first_front === second_front) {                      //when a match found
                 $('.match_sound').trigger('play');
+                first_clicked.css('pointer-events','none');           //remove click event from matching cards so it won't click again
+                second_clicked.css('pointer-events','none');
                 first_clicked = null;
                 second_clicked = null;
                 if(whos_turn === 1){
@@ -167,9 +169,11 @@ function card_clicked() {
                 }
             } else {                                               //if it's not a match
                 $('.no_match_sound').trigger('play');
+                first_clicked.off();
+                second_clicked.off();
                 var first_back = $(first_clicked).find('.back');
                 var second_back = $(second_clicked).find('.back');
-                $('.card').off();                    //disable clicks for any other cards besides the two cards that have been clicked
+                $('.card').off();                    //disable click so other cards can't be clicked between 3sec setTimeout
                 setTimeout(function () {
                     first_back.show();
                     second_back.show();
@@ -212,7 +216,7 @@ function play_again() {
     generate_cards();
     $('.card').click(card_clicked);
 }
-//---------------------------------- MAIN MENU ----------------------------------
-function main_menu() {
+//---------------------------------- REFRESH THE PAGE ----------------------------------
+function restart() {
     location.reload();
 }
