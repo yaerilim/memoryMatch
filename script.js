@@ -3,8 +3,12 @@ $(document).ready(function(){
     $('.stats').hide();
     $('.game_area').hide();
     $('.win_condition').hide();
+    $('.landscape').css({
+        "visibility": "hidden",
+        "position": "absolute"
+    });
 });
-//---------------------------------- MUSIC ----------------------------------
+//---------------------------------- MUSIC ON/OFF ----------------------------------
 function audio_off(){
     $('.fa-volume-off').addClass('audio_color');
     $('.fa-volume-up').removeClass('audio_color');

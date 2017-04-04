@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Doraemon Memory Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -10,6 +11,7 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <img class="landscape" src ="img/landscape.gif">
     <!--------------------------------- WIN CONDITION --------------------------------->
     <div class="win_condition"><img class="win_img" src="" onclick="play_again()"></div>
     <!--------------------------------- START PAGE --------------------------------->
@@ -22,11 +24,10 @@
         <img class="nobita grayscale" src="img/nobita.png">
         <button type="button" class="play_button grayscale focus" onclick="play()" disabled>P L A Y</button>
     </div>
-    <!--------------------------------- MUSIC --------------------------------->
-    <audio class="doraemon_music" loop="loop" autoplay="autoplay" src="sound/doraemon.mp3"></audio>
+    <!--------------------------------- MUSIC & SOUND EFFECTS --------------------------------->
     <i class="fa fa-volume-off" aria-hidden="true" onclick="audio_off()"></i>
     <i class="fa fa-volume-up audio_color" aria-hidden="true" onclick="audio_on()"></i>
-    <!--------------------------------- SOUND EFFECTS --------------------------------->
+    <audio class="doraemon_music" loop="loop" autoplay="autoplay" src="sound/doraemon.mp3"></audio>
     <audio class="click_sound" src="sound/click.mp3"></audio>
     <audio class="no_match_sound" src="sound/wrong.mp3"></audio>
     <audio class="match_sound" src="sound/right.wav"></audio>
