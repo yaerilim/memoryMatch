@@ -205,7 +205,7 @@ audio {
         margin: 10%;
     }
     .main_page, .fa, .stats, .p2_stats, .button, .game_area{
-        display: none;
+        display: none !important;
     }
     body{
         background-image: none !important;
