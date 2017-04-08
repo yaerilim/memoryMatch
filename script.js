@@ -3,10 +3,6 @@ $(document).ready(function(){
     $('.stats').hide();
     $('.game_area').hide();
     $('.win_condition').hide();
-    $('.landscape').css({
-        "visibility": "hidden",
-        "position": "absolute"
-    });
 });
 //---------------------------------- MUSIC ON/OFF ----------------------------------
 function audio_off(){

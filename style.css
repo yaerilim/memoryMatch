@@ -15,6 +15,10 @@ body{
 .clouds{
     background-image: url("img/clouds.png");
 }
+.landscape{
+    visibility: hidden;
+    position: absolute;
+}
 /******************************* MULTI-USE *******************************/
 .grayscale{
     filter: grayscale(100%);
